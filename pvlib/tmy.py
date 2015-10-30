@@ -190,6 +190,9 @@ def readtmy3(filename=None, coerce_year=None, recolumn=True):
 
     TMYData = TMYData.tz_localize(int(meta['TZ']*3600))
 
+    if not csvdata.closed:
+        csvdata.close()
+
     return TMYData, meta
 
 
